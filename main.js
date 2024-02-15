@@ -112,4 +112,3 @@ document.getElementById('blast-off-btn').addEventListener('click', function() {
   // Optionally hide the button after click
   this.style.display = 'none';
 });
-

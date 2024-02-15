@@ -28,6 +28,13 @@
      0 -2px 0 #ff0;
 }
 
+button{
+  font-family: 'Death-Star', sans-serif;
+  max-width: 100px;
+  max-height: 100px;
+  transform: scale(200%);
+}
+
 #blast-off-btn {
   position: absolute;
   top: 75%;
@@ -38,14 +45,35 @@
 
 .footer-logos {
   position: fixed;
-  bottom: 150px; /* Adjust this value to move closer or farther from the bottom */
+  bottom: 10%; /* Adjust this value to move closer or farther from the bottom */
   width: 100%;
   text-align: center;
 }
+
 .footer-logos svg {
-  width: 100px; /* Adjust based on your SVG size preferences */
-  height: auto;
-  margin: 0 10px; /* Space between logos */
+  margin-right: 10px; /* Add space between logos */
+  max-width: 50px; /* Maximum size */
+  width: 100%; /* Scales based on the parent container's width */
+  height: auto; /* Maintain aspect ratio */
 }
 
+#insta-btn, #sc-btn {
+  background-color: transparent; /* Make button background transparent */
+  border: none; /* Remove button border, if any */
+  padding: 0; /* Remove padding to ensure it's just the SVG visible */
+  cursor: pointer; /* Optional: Change cursor to pointer to indicate it's clickable */
+}
 
+#insta-btn {
+  /* Decrease the size of the svg */
+  max-width: 110px;
+  width: 100%;
+  height: auto;
+}
+
+#sc-btn {
+  /* Increase the size of the svg */
+  max-width: 100px; /* Adjusted as per your request */
+  width: 100%;
+  height: auto;
+}
