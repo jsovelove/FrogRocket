@@ -41,7 +41,7 @@ window.onload = function() {
   });
 };
 const assetLoader = new GLTFLoader(manager);
-const frogURL = new URL('frog.glb', import.meta.url);
+const frogURL = new URL('public/frog.glb', import.meta.url);
 let model;
 assetLoader.load(frogURL.href, function(gltf) {
   model = gltf.scene;
