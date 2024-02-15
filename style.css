@@ -2,16 +2,30 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: 'Death-Star';
+  src: url('DeathStar.ttf');
+}
+
 #container {
   font-size: calc(20px);
-  font-family: 'Arial Black';
+  font-family: 'Death-Star', sans-serif; /* Added a fallback font */
   position: absolute;
   top: 50px;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: black; /* Change text color to black */
   text-align: center;
   display: none;
+  text-shadow:
+    -1px -1px 0 #ff0,  
+     1px -1px 0 #ff0,
+    -1px  1px 0 #ff0,
+     1px  1px 0 #ff0,
+    -2px  0 0 #ff0,
+     2px  0 0 #ff0,
+     0  2px 0 #ff0,
+     0 -2px 0 #ff0;
 }
 
 #blast-off-btn {
@@ -22,6 +36,16 @@
   display: none;
 }
 
-
+.footer-logos {
+  position: fixed;
+  bottom: 150px; /* Adjust this value to move closer or farther from the bottom */
+  width: 100%;
+  text-align: center;
+}
+.footer-logos svg {
+  width: 100px; /* Adjust based on your SVG size preferences */
+  height: auto;
+  margin: 0 10px; /* Space between logos */
+}
 
 

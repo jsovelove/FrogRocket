@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { gsap } from "/node_modules/gsap/gsap-core.js";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -19,28 +18,28 @@ camera.position.z = 5;
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.update();
 
-// Create a loading manager
 const manager = new THREE.LoadingManager();
 manager.onStart = function (url, itemsLoaded, itemsTotal) {
-  // Show loading screen or progress
   document.getElementById('loading-screen').style.display = 'flex';
 };
 
 manager.onLoad = function () {
-  // Hide loading screen
   document.getElementById('loading-screen').style.display = 'none';
   document.getElementById('container').style.display = 'block';
   document.getElementById('blast-off-btn').style.display = 'block';
-
-  // Start the animation once everything is loaded
   animate();
 };
-
-const loader = new RGBELoader(manager);
-loader.load('HDR_blue_nebulae-1.hdr', function(texture) {
-  scene.background = texture;
-});
-
+window.onload = function() {
+  gsap.to(camera.position, {
+    x: -0.02980453320040305,
+    z: 0.36919539079159597,
+    y: 0.21101628126584224,
+    duration: 3,
+    onUpdate: function() {
+      camera.lookAt(0, 0, 0);
+    }
+  });
+};
 const assetLoader = new GLTFLoader(manager);
 const frogURL = new URL('frog.glb', import.meta.url);
 let model;
@@ -63,17 +62,6 @@ window.addEventListener('resize', function() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-window.onload = function() {
-  gsap.to(camera.position, {
-    x: -0.02980453320040305,
-    z: 0.36919539079159597,
-    y: 0.21101628126584224,
-    duration: 3,
-    onUpdate: function() {
-      camera.lookAt(0, 0, 0);
-    }
-  });
-};
 
 function createParticles() {
   const particlesGeometry = new THREE.BufferGeometry();
